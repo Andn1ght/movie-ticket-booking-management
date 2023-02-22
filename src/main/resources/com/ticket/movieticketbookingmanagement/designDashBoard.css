@@ -1,0 +1,84 @@
+.top-form {
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-border-width: .2px .2px .4px .2px;
+}
+.nav-form {
+    -fx-background-color: linear-gradient(to top right, #f29c1f, #f0c419);
+}
+.bg-white{
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,.3), 8,0,0,0);
+    -fx-background-radius: 8px;
+}
+.bg-white:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 8,0,0,0);
+}
+.card1{
+    -fx-background-color: linear-gradient(to right, #2b428c, #2e58ab);
+    -fx-background-radius: 0px 10px 10px 0px;
+}
+.card1-left{
+    -fx-background-color: linear-gradient(to right, #213778, #2b428c);
+}
+.card2{
+    -fx-background-color: linear-gradient(to right, #772d90, #a42fb8);
+    -fx-background-radius: 0px 10px 10px 0px;
+}
+.card2-left{
+    -fx-background-color: linear-gradient(to right, #641f7f, #772d90);
+}
+.card3{
+    -fx-background-color: linear-gradient(to right, #9d2249, #cc1c5a);
+    -fx-background-radius: 0px 10px 10px 0px;
+}
+.card3-left{
+    -fx-background-color: linear-gradient(to right, #891a41, #9d2249);
+}
+.card:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+.table-view{
+    -fx-background-color: #fff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #f29c1f;
+    -fx-border-radius: 10px;
+    -fx-fill: #fff;
+    -fx-padding: 0px;
+}
+.table-view .column-header-background{
+    -fx-background-color: linear-gradient(to top left, #e57e25, #f0c419);
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 10px 10px 0px 0px;
+}
+.table-view .column-header, .table-view .filler{
+    -fx-background-color: transparent;
+    -fx-size: 50px;
+    -fx-fill: #fff
+}
+.table-view .column-header .label{
+    -fx-text-fill: #fff;
+}
+.info-card{
+    -fx-border-color: #f0c419;
+    -fx-border-radius: 10px 0px 0px 10px;
+}
+.label-info{
+    -fx-border-color: #f0c419;
+    -fx-border-radius: 0px 5px 0px 0px;
+    -fx-border-width: .8px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+.spinner{
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-border-width: .5px;
+}
+.card-customer{
+    -fx-background-color: #fff;
+    -fx-background-radius: 5px;
+    -fx-border-color: #f0c419;
+    -fx-border-width: .8px;
+    -fx-border-radius: 1px;
+}

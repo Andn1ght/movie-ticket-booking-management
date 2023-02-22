@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticket.movieticketbookingmanagement.DashboardController">
+   <children>
+      <BorderPane layoutX="424.0" layoutY="143.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="290.0" layoutY="-75.0" prefHeight="42.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@designDashBoard.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <JFXButton fx:id="close" layoutX="1051.0" layoutY="2.0" onAction="#close" prefHeight="25.0" prefWidth="47.0" style="-fx-background-color: #ffc107;" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </JFXButton>
+                        <Label layoutX="31.0" layoutY="12.0" text="Movie Ticket Management">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon fill="#ffc107" glyphName="PLAY" layoutX="14.0" layoutY="25.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="nav-form" stylesheets="@designDashBoard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="68.0" layoutY="108.0" size="7em" />
+                  <Label layoutX="65.0" layoutY="120.0" text="Welcome" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="username" alignment="CENTER" layoutX="8.0" layoutY="146.0" prefHeight="21.0" prefWidth="185.0" text="Admin" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="dashboard_btn" buttonType="RAISED" layoutX="13.0" layoutY="231.0" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" ripplerFill="BLACK" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Dashboard">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="DASHBOARD" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="addMovies_btn" buttonType="RAISED" layoutX="13.0" layoutY="275.0" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Add Movies">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="PLUS" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="availableMovies_btn" buttonType="RAISED" layoutX="13.0" layoutY="318.0" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Available Movies">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="SERVER" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="editScreening_btn" buttonType="RAISED" layoutX="13.0" layoutY="361.0" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Edit Screening">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="EDIT" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="customers_btn" buttonType="RAISED" layoutX="13.0" layoutY="403.0" onAction="#switchForm" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Customers">
+                     <graphic>
+                        <FontAwesomeIcon glyphName="USERS" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="signout" buttonType="RAISED" layoutX="8.0" layoutY="494.0" onAction="#logout" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: red; -fx-cursor: hand;" text="SIGN OUT" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="dashboard_form" layoutX="128.0" layoutY="136.0" prefHeight="550.0" prefWidth="900.0" stylesheets="@designDashBoard.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="180.0" prefWidth="876.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane layoutX="28.0" layoutY="14.0" prefHeight="152.0" prefWidth="261.0" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <AnchorPane prefHeight="152.0" prefWidth="84.0" styleClass="card1-left" stylesheets="@designDashBoard.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="TICKET" layoutX="12.0" layoutY="97.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="97.0" layoutY="111.0" text="Total Sold Ticket" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_totalSoldTicket" alignment="CENTER_RIGHT" layoutX="95.0" layoutY="14.0" prefHeight="33.0" prefWidth="144.0" text="1500" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card1" />
+                                    <String fx:value="card" />
+                                 </styleClass></AnchorPane>
+                              <AnchorPane layoutX="308.0" layoutY="14.0" prefHeight="152.0" prefWidth="261.0" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <AnchorPane prefHeight="152.0" prefWidth="93.0" styleClass="card2-left" stylesheets="@designDashBoard.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="MONEY" layoutX="14.0" layoutY="97.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="104.0" layoutY="111.0" text="Total Earn Today" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_totalEarnToday" alignment="CENTER_RIGHT" layoutX="100.0" layoutY="14.0" prefHeight="33.0" prefWidth="136.0" text="1500" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card2" />
+                                    <String fx:value="card" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <AnchorPane layoutX="590.0" layoutY="14.0" prefHeight="152.0" prefWidth="261.0" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <AnchorPane prefHeight="152.0" prefWidth="77.0" styleClass="card3-left" stylesheets="@designDashBoard.css">
+                                       <children>
+                                          <FontAwesomeIcon fill="WHITE" glyphName="PLAY" layoutX="15.0" layoutY="97.0" size="5em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="91.0" layoutY="111.0" text="Available Movies" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dashboard_availableMovies" alignment="CENTER_RIGHT" layoutX="83.0" layoutY="14.0" prefHeight="27.0" prefWidth="152.0" text="1500" textFill="WHITE">
+                                       <font>
+                                          <Font name="Berlin Sans FB" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="card3" />
+                                    <String fx:value="card" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="12.0" layoutY="224.0" prefHeight="312.0" prefWidth="876.0" styleClass="bg-white" stylesheets="@designDashBoard.css" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="addMovies_form" layoutX="294.0" layoutY="134.0" prefHeight="550.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="15.0" prefHeight="521.0" prefWidth="323.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane layoutX="100.0" layoutY="14.0" prefHeight="167.0" prefWidth="127.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <ImageView fx:id="addMovies_imageView" fitHeight="167.0" fitWidth="127.0" layoutX="2.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <JFXButton fx:id="addMovie_importBtn" buttonType="RAISED" layoutX="134.0" layoutY="189.0" onAction="#importImage" ripplerFill="WHITE" style="-fx-background-color: #3149a1; -fx-cursor: hand;" text="Import" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXTextField fx:id="addMovies_movieTitle" focusColor="#e57e25" layoutX="54.0" layoutY="232.0" prefHeight="25.0" prefWidth="225.0" promptText="Movie Title" unFocusColor="#f29c1f" AnchorPane.leftAnchor="54.0" />
+                              <JFXButton fx:id="addMovies_insertBtn" buttonType="RAISED" layoutX="33.0" layoutY="422.0" onAction="#insertAddMovies" prefHeight="35.0" prefWidth="74.0" ripplerFill="WHITE" style="-fx-background-color: #3149a1; -fx-cursor: hand;" text="Insert" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXTextField fx:id="addMovies_genre" focusColor="#e57e25" layoutX="54.0" layoutY="280.0" prefHeight="25.0" prefWidth="225.0" promptText="Genre" unFocusColor="#f29c1f" />
+                              <JFXTextField fx:id="addMovies_duration" focusColor="#e57e25" layoutX="54.0" layoutY="328.0" prefHeight="25.0" prefWidth="225.0" promptText="Duration" unFocusColor="#f29c1f" />
+                              <JFXButton fx:id="addMovies_updateBtn" buttonType="RAISED" layoutX="125.0" layoutY="422.0" onAction="#updateAddMovies" prefHeight="35.0" prefWidth="74.0" style="-fx-background-color: #3ea185; -fx-cursor: hand;" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="addMovies_deleteBtn" buttonType="RAISED" layoutX="217.0" layoutY="422.0" onAction="#deleteAddMovie" prefHeight="35.0" prefWidth="74.0" style="-fx-background-color: #962934; -fx-cursor: hand;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="addMovies_clearBtn" buttonType="RAISED" layoutX="217.0" layoutY="472.0" onAction="#clearAddMoviesList" prefHeight="35.0" prefWidth="74.0" style="-fx-background-color: #933b80; -fx-cursor: hand;" text="Clear" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <DatePicker fx:id="addMovies_date" layoutX="53.0" layoutY="368.0" prefHeight="37.0" prefWidth="227.0" promptText="Published Date" style="-fx-border-color: #f29c1f; -fx-border-radius: 5px;" stylesheets="@designDashBoard.css" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="356.0" layoutY="15.0" prefHeight="521.0" prefWidth="530.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <JFXTextField fx:id="addMovies_search" alignment="CENTER_RIGHT" focusColor="#e57e25" layoutX="35.0" layoutY="14.0" onKeyTyped="#searchAddMovies" prefHeight="30.0" prefWidth="219.0" promptText="Search" unFocusColor="#f29c1f" />
+                              <FontAwesomeIcon fill="#616161" glyphName="SEARCH" layoutX="35.0" layoutY="35.0" size="1.4em" />
+                              <TableView fx:id="addMovies_tableView" layoutX="14.0" layoutY="61.0" onMouseClicked="#selectAddMoviesList" prefHeight="451.0" prefWidth="503.0">
+                                <columns>
+                                  <TableColumn fx:id="addMovies_col_movieTitle" prefWidth="120.0" text="Movie Title" />
+                                  <TableColumn fx:id="addMovies_col_genre" prefWidth="126.0" text="Genre" />
+                                    <TableColumn fx:id="addMovies_col_duration" prefWidth="130.0" text="Duration" />
+                                    <TableColumn fx:id="addMovies_col_date" prefWidth="126.0" text="Published Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="availableMovies_form" layoutX="82.0" layoutY="88.0" prefHeight="550.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="210.0" prefWidth="876.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane prefHeight="190.0" prefWidth="264.0" styleClass="info-card" stylesheets="@designDashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="612.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label layoutX="11.0" layoutY="18.0" text="Movie Title:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="availableMovies_movieTitle" layoutX="95.0" layoutY="12.0" prefHeight="25.0" prefWidth="155.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Title:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="43.0" layoutY="61.0" text="Genre:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="availableMovies_genre" layoutX="95.0" layoutY="58.0" prefHeight="25.0" prefWidth="155.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Title:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="47.0" layoutY="105.0" text="Date:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="availableMovies_date" layoutX="95.0" layoutY="102.0" prefHeight="25.0" prefWidth="155.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Title:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXButton fx:id="availableMovies_selectMovieBtn" buttonType="RAISED" layoutX="86.0" layoutY="156.0" prefHeight="31.0" prefWidth="92.0" ripplerFill="WHITE" style="-fx-background-color: #3149a1; -fx-cursor: hand;" text="Select Movie" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </AnchorPane>
+                              <TableView fx:id="availableMovies_tableView" layoutX="277.0" layoutY="8.0" prefHeight="195.0" prefWidth="585.0">
+                                <columns>
+                                  <TableColumn fx:id="availableMovies_col_movieTitle" prefWidth="208.0" text="Movie Title" />
+                                  <TableColumn fx:id="availableMovies_col_genre" prefWidth="173.0" text="Genre" />
+                                    <TableColumn fx:id="availableMovies_col_showingDate" prefWidth="203.0" text="Showing Date" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="12.0" layoutY="238.0" prefHeight="298.0" prefWidth="876.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane layoutY="1.0" prefHeight="298.0" prefWidth="264.0" styleClass="info-card" stylesheets="@designDashBoard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="612.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane layoutX="64.0" layoutY="14.0" prefHeight="180.0" prefWidth="136.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                                       <children>
+                                          <ImageView fx:id="availableMovies_imageView" fitHeight="180.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </AnchorPane>
+                                    <Label fx:id="availableMovies_title" alignment="CENTER" layoutX="14.0" layoutY="204.0" prefHeight="26.0" prefWidth="236.0" text="Label">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="119.0" layoutY="238.0" text="Title">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="456.0" layoutY="59.0" text="Quantity">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="623.0" layoutY="59.0" text="Price">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="273.0" layoutY="14.0" text="Purchase Ticket">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="318.0" layoutY="108.0" text="Special Class:">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="318.0" layoutY="162.0" text="Special Class:">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="availableMovies_specialClass_price" layoutX="629.0" layoutY="109.0" text="\$0.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="availableMovies_normalClass_price" layoutX="629.0" layoutY="163.0" text="\$0.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="699.0" layoutY="188.0" text="Total:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="availableMovies_total" layoutX="759.0" layoutY="188.0" text="\$0.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="availableMovies_buyBtn" layoutX="702.0" layoutY="229.0" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: #2d7778; -fx-cursor: hand;" text="Buy" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="availableMovies_receiptBtn" layoutX="596.0" layoutY="229.0" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: #937729; -fx-cursor: hand;" text="Receipt" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="availableMovies_clearBtn" layoutX="324.0" layoutY="229.0" prefHeight="43.0" prefWidth="93.0" style="-fx-background-color: #933b80; -fx-cursor: hand;" text="Clear" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </JFXButton>
+                              <Spinner fx:id="availableMovies_specialClass_quantity" layoutX="434.0" layoutY="109.0" prefHeight="25.0" prefWidth="119.0" stylesheets="@designDashBoard.css" />
+                              <Spinner fx:id="availableMovies_normalClass_quantity" layoutX="434.0" layoutY="162.0" prefHeight="25.0" prefWidth="119.0" stylesheets="@designDashBoard.css" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editScreening_form" layoutX="176.0" layoutY="151.0" prefHeight="550.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="527.0" prefWidth="240.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane layoutX="54.0" layoutY="14.0" prefHeight="183.0" prefWidth="132.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <ImageView fx:id="editScreening_imageView" fitHeight="183.0" fitWidth="132.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="editScreening_title" alignment="CENTER" layoutX="5.0" layoutY="213.0" prefHeight="30.0" prefWidth="231.0" text="Label">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="107.0" layoutY="254.0" text="Title">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="editScreening_current" focusColor="#f29c1f" layoutX="88.0" layoutY="285.0" onAction="#editScreeningComboBox" prefHeight="31.0" prefWidth="130.0" promptText="Choose" style="-fx-cursor: hand;" unFocusColor="#e57e25" />
+                              <Label layoutX="29.0" layoutY="294.0" text="Current:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="editScreening_deleteBtn" buttonType="RAISED" layoutX="136.0" layoutY="340.0" onAction="#clearEditScreening" prefHeight="40.0" prefWidth="82.0" style="-fx-background-color: #933b80; -fx-cursor: hand;" text="Clear" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="editScreening_updateBtn" buttonType="RAISED" layoutX="29.0" layoutY="340.0" onAction="#updateEditScreening" prefHeight="40.0" prefWidth="82.0" style="-fx-background-color: #3ea185; -fx-cursor: hand;" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="276.0" layoutY="12.0" prefHeight="527.0" prefWidth="610.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <JFXTextField fx:id="editScreening_search" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="219.0" promptText="Search" />
+                              <FontAwesomeIcon fill="#363636" glyphName="SEARCH" layoutX="14.0" layoutY="35.0" size="1.5em" />
+                              <TableView fx:id="editScreening_tableView" layoutX="24.0" layoutY="75.0" onMouseClicked="#selectEditScreening" prefHeight="438.0" prefWidth="563.0">
+                                <columns>
+                                  <TableColumn fx:id="editScreening_col_movieTitle" prefWidth="153.0" text="Movie Title" />
+                                  <TableColumn fx:id="editScreening_col_genre" prefWidth="126.0" text="Genre" />
+                                    <TableColumn fx:id="editScreening_col_duration" prefWidth="136.0" text="Duration" />
+                                    <TableColumn fx:id="editScreening_col_current" prefWidth="147.0" text="Current" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="customers_form" layoutX="220.0" layoutY="84.0" prefHeight="550.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="527.0" prefWidth="299.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="14.0" prefHeight="205.0" prefWidth="269.0" styleClass="card-customer" stylesheets="@designDashBoard.css">
+                                 <children>
+                                    <Label layoutX="42.0" layoutY="19.0" text="Ticket #:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="customers_ticketNumber" layoutX="94.0" layoutY="12.8" prefHeight="34.0" prefWidth="167.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Ticket:" AnchorPane.bottomAnchor="164.0" AnchorPane.topAnchor="11.0" />
+                                    <Label layoutX="27.0" layoutY="55.0" text="Movie Title:" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="55.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="customers_movieTitle" layoutX="94.0" layoutY="43.0" prefHeight="32.0" prefWidth="167.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Ticket:" AnchorPane.topAnchor="48.0" />
+                                    <Label layoutX="52.0" layoutY="92.0" text="Genre:" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="92.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="customers_genre" layoutX="94.0" layoutY="89.0" prefHeight="32.0" prefWidth="167.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Ticket:" AnchorPane.topAnchor="85.0" />
+                                    <Label layoutX="10.0" layoutY="129.0" text="Date Checked:" AnchorPane.leftAnchor="7.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="customers_date" layoutX="95.0" layoutY="131.0" prefHeight="32.0" prefWidth="167.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Ticket:" AnchorPane.topAnchor="122.0" />
+                                    <Label layoutX="8.0" layoutY="166.0" text="Time Checked:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="customers_time" layoutX="95.0" layoutY="155.0" prefHeight="32.0" prefWidth="167.0" styleClass="label-info" stylesheets="@designDashBoard.css" text="Movie Ticket:" AnchorPane.topAnchor="159.0" />
+                                 </children>
+                              </AnchorPane>
+                              <JFXButton fx:id="customers_clearBtn" buttonType="RAISED" layoutX="37.0" layoutY="276.0" prefHeight="45.0" prefWidth="86.0" ripplerFill="WHITE" style="-fx-background-color: #933b80; -fx-cursor: hand;" text="Clear" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="customers_deleteBtn" buttonType="RAISED" layoutX="172.0" layoutY="276.0" prefHeight="45.0" prefWidth="86.0" ripplerFill="WHITE" style="-fx-background-color: #962934; -fx-cursor: hand;" text="Delete" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="327.0" layoutY="12.0" prefHeight="527.0" prefWidth="559.0" styleClass="bg-white" stylesheets="@designDashBoard.css">
+                           <children>
+                              <JFXTextField fx:id="customers_search" alignment="CENTER_RIGHT" layoutX="26.0" layoutY="21.0" prefHeight="30.0" prefWidth="232.0" promptText="Search" />
+                              <FontAwesomeIcon fill="#515151" glyphName="SEARCH" layoutX="26.0" layoutY="40.0" size="1.2em" />
+                              <TableView fx:id="customers_tableView" layoutX="14.0" layoutY="77.0" prefHeight="436.0" prefWidth="532.0">
+                                <columns>
+                                  <TableColumn fx:id="customers_col_ticketNumber" prefWidth="110.0" text="Ticket Number" />
+                                  <TableColumn fx:id="customers_col_movieTitle" prefWidth="108.0" text="Movie Title" />
+                                    <TableColumn fx:id="customers_col_genre" prefWidth="85.0" text="Genre" />
+                                    <TableColumn fx:id="customers_col_date" prefWidth="107.0" text="Date Checked" />
+                                    <TableColumn fx:id="customers_col_time" prefWidth="121.0" text="Time Checked" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

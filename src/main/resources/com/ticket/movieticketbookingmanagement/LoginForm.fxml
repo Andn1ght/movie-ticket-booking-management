@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.PerspectiveTransform?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticket.movieticketbookingmanagement.RegisterController">
+   <children>
+      <AnchorPane fx:id="signin_form" prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #f9eab0;">
+               <children>
+                  <ImageView fx:id="ticket" fitHeight="262.0" fitWidth="266.0" layoutX="119.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/movies.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <JFXTextField fx:id="signin_username" focusColor="#f0c419" labelFloat="true" layoutX="639.0" layoutY="277.0" onAction="#signIn" prefHeight="30.0" prefWidth="235.0" promptText="Username" unFocusColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="signin_password" focusColor="#f0c419" labelFloat="true" layoutX="639.0" layoutY="338.0" onAction="#signIn" prefHeight="30.0" prefWidth="235.0" promptText="Password" unFocusColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXCheckBox checkedColor="#e57e25" layoutX="638.0" layoutY="397.0" text="Don't logout" unCheckedColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXCheckBox>
+            <Label layoutX="690.0" layoutY="205.0" text="WELCOME">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="signin_loginBtn" buttonType="RAISED" layoutX="701.0" layoutY="457.0" onAction="#signIn" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #ffc107;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+            <FontAwesomeIcon fill="#ffc107" glyphName="USER" layoutX="613.0" layoutY="300.0" size="2em" />
+            <FontAwesomeIcon fill="#ffc107" glyphName="LOCK" layoutX="615.0" layoutY="365.0" size="2em" />
+            <JFXButton fx:id="signin_close" blendMode="SRC_ATOP" layoutX="957.0" layoutY="2.0" onAction="#close" prefHeight="25.0" prefWidth="43.0" style="-fx-background-color: #ffc107;" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <effect>
+                  <PerspectiveTransform />
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="user" fitHeight="150.0" fitWidth="200.0" layoutX="681.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/user.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="signin_createAccount" layoutX="685.0" layoutY="520.0" onAction="#switchForm" text="Create a new account" textFill="#c46e00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="signup_form" prefHeight="600.0" prefWidth="1000.0" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #f9eab0;">
+               <children>
+                  <ImageView fitHeight="262.0" fitWidth="294.0" layoutX="119.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/signup.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fitHeight="139.0" fitWidth="110.0" layoutX="700.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/add-user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="713.0" layoutY="181.0" text="SIGN UP">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="signup_email" focusColor="#f0c419" labelFloat="true" layoutX="645.0" layoutY="240.0" prefHeight="30.0" prefWidth="222.0" promptText="Email Address" unFocusColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="signup_username" focusColor="#f0c419" labelFloat="true" layoutX="645.0" layoutY="309.0" prefHeight="30.0" prefWidth="222.0" promptText="Username" unFocusColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="signup_password" focusColor="#f0c419" labelFloat="true" layoutX="644.0" layoutY="375.0" prefHeight="25.0" prefWidth="222.0" promptText="Password" unFocusColor="#e57e25">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="signup_btn" buttonType="RAISED" layoutX="703.0" layoutY="459.0" onAction="#signUp" prefHeight="48.0" prefWidth="105.0" style="-fx-background-color: #ffc107;" text="SIGNUP" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="signup_close" layoutX="957.0" layoutY="2.0" onAction="#close" prefHeight="25.0" prefWidth="43.0" style="-fx-background-color: #ffc107;" text="X" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></JFXButton>
+            <Hyperlink fx:id="signup_alreadyHaveAccount" layoutX="671.0" layoutY="532.0" onAction="#switchForm" text="Already have an account?" textFill="#c46e00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

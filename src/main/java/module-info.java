@@ -6,6 +6,7 @@ module com.ticket.movieticketbookingmanagement {
     requires java.sql;
     requires controlsfx;
     requires fontawesomefx;
+    requires jasperreports;
 
     opens com.ticket.movieticketbookingmanagement to javafx.fxml;
     exports com.ticket.movieticketbookingmanagement;

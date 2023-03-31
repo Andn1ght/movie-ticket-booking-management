@@ -38,8 +38,11 @@ public class TicketMain extends Application {
 
         });
 
+
+
         try {
-            if (!DatabaseUtil.tableExists("user") || !DatabaseUtil.tableExists("movie")) {
+            if (!DatabaseUtil.tableExists("user") || !DatabaseUtil.tableExists("movie")
+                    || !DatabaseUtil.tableExists("customer") || !DatabaseUtil.tableExists("customer_info")) {
                 DatabaseUtil.createTables();
                 System.out.println("Tables created successfully");
             } else {

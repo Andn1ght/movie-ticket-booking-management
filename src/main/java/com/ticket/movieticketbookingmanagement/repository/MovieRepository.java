@@ -1,9 +1,7 @@
 package com.ticket.movieticketbookingmanagement.repository;
 
-import com.jfoenix.controls.JFXComboBox;
 import com.ticket.movieticketbookingmanagement.model.Movie;
 import javafx.collections.ObservableList;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.sql.SQLException;
@@ -22,5 +20,9 @@ public interface MovieRepository {
 
     ObservableList<Movie> editScreeningList() throws SQLException;
 
+    ObservableList<Movie> availableMoviesList();
+
     void updateEditScreening(String current, String title, ImageView image);
+
+    void buyTicket(Float price1, Float price2, Float total, ImageView image, String title, int quantity);
 }

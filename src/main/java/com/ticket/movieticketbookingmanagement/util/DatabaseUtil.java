@@ -50,10 +50,33 @@ public class DatabaseUtil {
                 + "PRIMARY KEY (id)"
                 + ")";
 
-        // Create the users and movies tables
+        String createCustomersTableQuery = "CREATE TABLE IF NOT EXISTS customer ("
+                + "id INT NOT NULL AUTO_INCREMENT,"
+                + "type VARCHAR(100) NOT NULL,"
+                + "movieTitle VARCHAR(100),"
+                + "quantity INT,"
+                + "total DOUBLE NOT NULL,"
+                + "date DATE,"
+                + "time TIME,"
+                + "PRIMARY KEY (id)"
+                + ")";
+
+        String createCustomersInfoQuery = "CREATE TABLE IF NOT EXISTS customer_info ("
+                + "id INT NOT NULL AUTO_INCREMENT,"
+                + "customer_id INT NOT NULL,"
+                + "type VARCHAR(100) NOT NULL,"
+                + "quantity INT,"
+                + "total DOUBLE,"
+                + "movieTitle VARCHAR(100) NOT NULL,"
+                + "PRIMARY KEY (id)"
+                + ")";
+
+
+        // Create tables
+        statement.execute(createCustomersInfoQuery);
         statement.execute(createUsersTableQuery);
         statement.execute(createMoviesTableQuery);
-
+        statement.execute(createCustomersTableQuery);
         closeConnection(connection, statement, null);
     }
 

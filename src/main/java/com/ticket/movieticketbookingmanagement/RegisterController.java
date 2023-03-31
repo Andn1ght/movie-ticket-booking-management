@@ -219,30 +219,4 @@ public class RegisterController {
         System.exit(0);
     }
 
-    /*
-    public void RegisterUser(ActionEvent event) throws SQLException {
-
-        connection = DatabaseUtil.getConnection();
-        UserRepository userRepository = new UserRepositoryImpl(connection);
-        try {
-            DatabaseUtil.createTables();
-            System.out.println("Tables created successfully");
-        } catch (SQLException e) {
-            System.err.println("Error creating tables: " + e.getMessage());
-        }
-        if(validationcheck())
-        {
-            User user = new User(signup_username.getText(), signup_email.getText(), signup_password.getText());
-            userRepository.addUser(user);
-            if(userRepository.addUser(getdata())!=0)
-                AlertMaker.showNotification("Success","You are now Registered.Please Login from the Main Menu", AlertMaker.image_checked);
-            else
-                AlertMaker.showNotification("Fail","Username Exists",AlertMaker.image_movie_forbidden);
-        }
-        else
-        {
-            AlertMaker.showNotification("Improper Data", "Please enter all relevant data in proper manner",AlertMaker.image_warning);
-        }
-    }
-     */
 }

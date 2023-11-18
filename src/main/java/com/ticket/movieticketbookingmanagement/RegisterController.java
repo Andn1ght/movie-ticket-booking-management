@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.ticket.movieticketbookingmanagement.alert.AlertMaker;
+import com.ticket.movieticketbookingmanagement.getData;
 import com.ticket.movieticketbookingmanagement.model.User;
 import com.ticket.movieticketbookingmanagement.repository.UserRepository;
 import com.ticket.movieticketbookingmanagement.repository.UserRepositoryImpl;
@@ -162,7 +163,7 @@ public class RegisterController {
 
             } else {
 
-                getData.username = signin_username.getText();
+                getData.username = username;
 
                 AlertMaker.showSimpleAlert("Information Message", "Successfully Login!");
 

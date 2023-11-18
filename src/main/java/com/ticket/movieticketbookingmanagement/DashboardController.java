@@ -19,7 +19,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -775,7 +774,7 @@ public class DashboardController implements Initializable {
 
         try {
 
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginForm.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("com/ticket/movieticketbookingmanagement/LoginForm.fxml")));
 
             Stage stage = new Stage();
             Scene scene = new Scene(root);

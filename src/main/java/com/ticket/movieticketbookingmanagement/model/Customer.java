@@ -1,6 +1,5 @@
 package com.ticket.movieticketbookingmanagement.model;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class Customer {
@@ -11,9 +10,9 @@ public class Customer {
     private Integer quantity;
     private double total;
     private Date date;
-    private Time time;
+    private String time;
 
-    public Customer(Integer id, String type, String title, Integer quantity, double total, Date date, Time time) {
+    public Customer(Integer id, String type, String title, Integer quantity, double total, Date date, String time) {
         this.id = id;
         this.type = type;
         this.title = title;
@@ -26,9 +25,11 @@ public class Customer {
     public String getTitle() {
         return title;
     }
-    public Time getTime() {
+
+    public String getTime() {
         return time;
     }
+
     public Integer getId() {
         return id;
     }

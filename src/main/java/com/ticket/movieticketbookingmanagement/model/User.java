@@ -12,8 +12,6 @@ public class User {
         this.password = password;
     }
 
-    // Getters and setters for all properties
-
     public int getId() {
         return id;
     }

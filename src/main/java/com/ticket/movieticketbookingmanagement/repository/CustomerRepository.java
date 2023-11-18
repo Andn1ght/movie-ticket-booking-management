@@ -5,7 +5,5 @@ import javafx.collections.ObservableList;
 
 public interface CustomerRepository {
     void deleteCustomer(String ticketNum, String title, String date, String time);
-
     ObservableList<Customer> customerList();
-
 }

@@ -1,123 +1,50 @@
 package com.ticket.movieticketbookingmanagement.alert;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import javafx.geometry.Pos;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
 
 public class AlertMaker {
 
+    private static final AlertFactory alertFactory = new CustomAlertFactory();
+
     public static void showSimpleAlert(String title, String content) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
+        alertFactory.createAlert(title, content).showAndWait();
     }
+
     public static void showWarning(Exception ex) {
-        Notifications notify=Notifications.create()
+        showWarning("Warning", "An exception occurred: ", ex);
+    }
+
+    public static void showWarning(String title, String message, Exception ex) {
+        Notifications notify = Notifications.create()
                 .darkStyle()
-                .title(ex.getClass().getName())
-                .text(ex.getMessage())
+                .title(title)
+                .text(message + ex.getMessage())
                 .position(Pos.TOP_CENTER)
                 .hideAfter(Duration.seconds(5));
         notify.show();
     }
-    public static void showWarning(String Title,String Message,Exception ex)
-    {
-        Notifications notify=Notifications.create()
-                .darkStyle()
-                .title(Title)
-                .text(Message+ex.getMessage())
-                .position(Pos.TOP_CENTER)
-                .hideAfter(Duration.seconds(5));
-        notify.show();
-    }
+
     public static void showErrorMessage(String title, String content) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
+        alertFactory.showErrorAlert(title, content);
     }
 
     public static void showErrorMessage(Exception ex) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error occured");
-        alert.setHeaderText("Error Occured");
-        alert.setContentText(ex.getLocalizedMessage());
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        ex.printStackTrace(pw);
-        String exceptionText = sw.toString();
-
-        Label label = new Label("The exception stacktrace was:");
-
-        TextArea textArea = new TextArea(exceptionText);
-        textArea.setEditable(false);
-        textArea.setWrapText(true);
-
-        textArea.setMaxWidth(Double.MAX_VALUE);
-        textArea.setMaxHeight(Double.MAX_VALUE);
-        GridPane.setVgrow(textArea, Priority.ALWAYS);
-        GridPane.setHgrow(textArea, Priority.ALWAYS);
-
-        GridPane expContent = new GridPane();
-        expContent.setMaxWidth(Double.MAX_VALUE);
-        expContent.add(label, 0, 0);
-        expContent.add(textArea, 0, 1);
-
-        alert.getDialogPane().setExpandableContent(expContent);
-        alert.showAndWait();
+        alertFactory.createExceptionAlert(ex, "Error occurred", ex.getLocalizedMessage());
     }
 
     public static void showErrorMessage(Exception ex, String title, String content) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setTitle("Error occured");
-        alert.setHeaderText(title);
-        alert.setContentText(content);
-
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        ex.printStackTrace(pw);
-        String exceptionText = sw.toString();
-
-        Label label = new Label("The exception stacktrace was:");
-
-        TextArea textArea = new TextArea(exceptionText);
-        textArea.setEditable(false);
-        textArea.setWrapText(true);
-
-        textArea.setMaxWidth(Double.MAX_VALUE);
-        textArea.setMaxHeight(Double.MAX_VALUE);
-        GridPane.setVgrow(textArea, Priority.ALWAYS);
-        GridPane.setHgrow(textArea, Priority.ALWAYS);
-
-        GridPane expContent = new GridPane();
-        expContent.setMaxWidth(Double.MAX_VALUE);
-        expContent.add(label, 0, 0);
-        expContent.add(textArea, 0, 1);
-
-        alert.getDialogPane().setExpandableContent(expContent);
-        alert.showAndWait();
+        alertFactory.createExceptionAlert(ex, title, content);
     }
-    public static void showNotification(String Title,String Message)
-    {
-        Notifications notify=Notifications.create()
+
+    public static void showNotification(String title, String message) {
+        Notifications notify = Notifications.create()
                 .darkStyle()
-                .title(Title)
-                .text(Message)
+                .title(title)
+                .text(message)
                 .position(Pos.TOP_CENTER)
                 .hideAfter(Duration.seconds(5));
         notify.show();
     }
 }
-
-

@@ -6,9 +6,18 @@ public class DatabaseUtil {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/movie_ticket_booking_system";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
+    private static Connection connection;
+
+    private DatabaseUtil() {
+        // private constructor to prevent instantiation
+    }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+        if (connection == null || connection.isClosed()) {
+            // Create a new connection if it doesn't exist or is closed
+            connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+        }
+        return connection;
     }
 
     public static void closeConnection(Connection connection, Statement statement, ResultSet resultSet) {
@@ -19,9 +28,7 @@ public class DatabaseUtil {
             if (statement != null) {
                 statement.close();
             }
-            if (connection != null) {
-                connection.close();
-            }
+            // Avoid closing the shared connection here to keep it open for reuse
         } catch (SQLException e) {
             System.err.println("Error closing database connection: " + e.getMessage());
         }

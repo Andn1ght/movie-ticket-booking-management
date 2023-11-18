@@ -1,7 +1,6 @@
 package com.ticket.movieticketbookingmanagement.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Movie {
 
@@ -14,7 +13,6 @@ public class Movie {
     private String current;
 
     public Movie(Integer id, String title, String genre, String duration, String image, LocalDate date, String current) {
-
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -52,4 +50,3 @@ public class Movie {
         return current;
     }
 }
-

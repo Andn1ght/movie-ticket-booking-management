@@ -1,7 +1,7 @@
 # Movie Ticket Booking Management System 🎥
 
 **Group:**  SE-2217
-**Team members:** Nurbol Alikhan , Satygul Zhanibek
+**Team members:** Nurbol Alikhan, Satygul Zhanibek, Qarsybai Baibolat
 
 
 # Project Overview 👋🏻
